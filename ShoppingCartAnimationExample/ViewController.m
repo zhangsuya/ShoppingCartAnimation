@@ -72,7 +72,7 @@
      *  是否执行添加的动画
      */
     //SDWebImage
-    self.redView.frame = btn.frame;
+//    self.redView.frame = btn.frame;
     [self.redView setImage:btn.imageView.image];
     //YYImage
     //                                                  [self.redView setImageWithURL:[_detailModel.piclist[0] objectForKey:@"pic_url" ] placeholder:[UIImage imageNamed:@"oversea"]];
