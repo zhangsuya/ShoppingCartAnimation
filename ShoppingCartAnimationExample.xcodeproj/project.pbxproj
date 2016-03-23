@@ -18,6 +18,7 @@
 		0421B6441CA260F700BBBD95 /* ParabolaTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0421B63F1CA260F700BBBD95 /* ParabolaTool.m */; };
 		0421B6451CA260F700BBBD95 /* MCFireworksView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0421B6401CA260F700BBBD95 /* MCFireworksView.m */; };
 		0421B6461CA260F700BBBD95 /* MCFireworksButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0421B6431CA260F700BBBD95 /* MCFireworksButton.m */; };
+		0421B6491CA2A29B00BBBD95 /* 1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0421B6481CA2A29B00BBBD95 /* 1.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		0421B6411CA260F700BBBD95 /* MCFireworksView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCFireworksView.h; sourceTree = "<group>"; };
 		0421B6421CA260F700BBBD95 /* MCFireworksButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCFireworksButton.h; sourceTree = "<group>"; };
 		0421B6431CA260F700BBBD95 /* MCFireworksButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCFireworksButton.m; sourceTree = "<group>"; };
+		0421B6481CA2A29B00BBBD95 /* 1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 1.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 		0421B6081CA233A000BBBD95 /* ShoppingCartAnimationExample */ = {
 			isa = PBXGroup;
 			children = (
+				0421B6481CA2A29B00BBBD95 /* 1.gif */,
 				0421B6471CA2612400BBBD95 /* ShoppingCartAnimation */,
 				0421B60C1CA233A000BBBD95 /* AppDelegate.h */,
 				0421B60D1CA233A000BBBD95 /* AppDelegate.m */,
@@ -268,6 +271,7 @@
 			files = (
 				0421B6191CA233A000BBBD95 /* LaunchScreen.storyboard in Resources */,
 				0421B6161CA233A000BBBD95 /* Assets.xcassets in Resources */,
+				0421B6491CA2A29B00BBBD95 /* 1.gif in Resources */,
 				0421B6141CA233A000BBBD95 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
