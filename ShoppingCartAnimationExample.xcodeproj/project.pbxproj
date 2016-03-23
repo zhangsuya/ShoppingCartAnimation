@@ -15,7 +15,9 @@
 		0421B6191CA233A000BBBD95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0421B6171CA233A000BBBD95 /* LaunchScreen.storyboard */; };
 		0421B6241CA233A000BBBD95 /* ShoppingCartAnimationExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0421B6231CA233A000BBBD95 /* ShoppingCartAnimationExampleTests.m */; };
 		0421B62F1CA233A000BBBD95 /* ShoppingCartAnimationExampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0421B62E1CA233A000BBBD95 /* ShoppingCartAnimationExampleUITests.m */; };
-		0421B63D1CA233F500BBBD95 /* ShoppingCarAnimation in Resources */ = {isa = PBXBuildFile; fileRef = 0421B63C1CA233F500BBBD95 /* ShoppingCarAnimation */; };
+		0421B6441CA260F700BBBD95 /* ParabolaTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0421B63F1CA260F700BBBD95 /* ParabolaTool.m */; };
+		0421B6451CA260F700BBBD95 /* MCFireworksView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0421B6401CA260F700BBBD95 /* MCFireworksView.m */; };
+		0421B6461CA260F700BBBD95 /* MCFireworksButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0421B6431CA260F700BBBD95 /* MCFireworksButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +54,12 @@
 		0421B62A1CA233A000BBBD95 /* ShoppingCartAnimationExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShoppingCartAnimationExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0421B62E1CA233A000BBBD95 /* ShoppingCartAnimationExampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartAnimationExampleUITests.m; sourceTree = "<group>"; };
 		0421B6301CA233A000BBBD95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0421B63C1CA233F500BBBD95 /* ShoppingCarAnimation */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ShoppingCarAnimation; path = ../ShoppingCarAnimation; sourceTree = "<group>"; };
+		0421B63E1CA260F700BBBD95 /* ParabolaTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParabolaTool.h; sourceTree = "<group>"; };
+		0421B63F1CA260F700BBBD95 /* ParabolaTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParabolaTool.m; sourceTree = "<group>"; };
+		0421B6401CA260F700BBBD95 /* MCFireworksView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCFireworksView.m; sourceTree = "<group>"; };
+		0421B6411CA260F700BBBD95 /* MCFireworksView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCFireworksView.h; sourceTree = "<group>"; };
+		0421B6421CA260F700BBBD95 /* MCFireworksButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCFireworksButton.h; sourceTree = "<group>"; };
+		0421B6431CA260F700BBBD95 /* MCFireworksButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCFireworksButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +110,7 @@
 		0421B6081CA233A000BBBD95 /* ShoppingCartAnimationExample */ = {
 			isa = PBXGroup;
 			children = (
-				0421B63C1CA233F500BBBD95 /* ShoppingCarAnimation */,
+				0421B6471CA2612400BBBD95 /* ShoppingCartAnimation */,
 				0421B60C1CA233A000BBBD95 /* AppDelegate.h */,
 				0421B60D1CA233A000BBBD95 /* AppDelegate.m */,
 				0421B60F1CA233A000BBBD95 /* ViewController.h */,
@@ -141,6 +148,19 @@
 				0421B6301CA233A000BBBD95 /* Info.plist */,
 			);
 			path = ShoppingCartAnimationExampleUITests;
+			sourceTree = "<group>";
+		};
+		0421B6471CA2612400BBBD95 /* ShoppingCartAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				0421B63E1CA260F700BBBD95 /* ParabolaTool.h */,
+				0421B63F1CA260F700BBBD95 /* ParabolaTool.m */,
+				0421B6401CA260F700BBBD95 /* MCFireworksView.m */,
+				0421B6411CA260F700BBBD95 /* MCFireworksView.h */,
+				0421B6421CA260F700BBBD95 /* MCFireworksButton.h */,
+				0421B6431CA260F700BBBD95 /* MCFireworksButton.m */,
+			);
+			name = ShoppingCartAnimation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,7 +268,6 @@
 			files = (
 				0421B6191CA233A000BBBD95 /* LaunchScreen.storyboard in Resources */,
 				0421B6161CA233A000BBBD95 /* Assets.xcassets in Resources */,
-				0421B63D1CA233F500BBBD95 /* ShoppingCarAnimation in Resources */,
 				0421B6141CA233A000BBBD95 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,7 +293,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0421B6461CA260F700BBBD95 /* MCFireworksButton.m in Sources */,
+				0421B6451CA260F700BBBD95 /* MCFireworksView.m in Sources */,
 				0421B6111CA233A000BBBD95 /* ViewController.m in Sources */,
+				0421B6441CA260F700BBBD95 /* ParabolaTool.m in Sources */,
 				0421B60E1CA233A000BBBD95 /* AppDelegate.m in Sources */,
 				0421B60B1CA233A000BBBD95 /* main.m in Sources */,
 			);
