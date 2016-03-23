@@ -52,7 +52,7 @@
 		0421B62A1CA233A000BBBD95 /* ShoppingCartAnimationExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShoppingCartAnimationExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0421B62E1CA233A000BBBD95 /* ShoppingCartAnimationExampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartAnimationExampleUITests.m; sourceTree = "<group>"; };
 		0421B6301CA233A000BBBD95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0421B63C1CA233F500BBBD95 /* ShoppingCarAnimation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ShoppingCarAnimation; sourceTree = "<group>"; };
+		0421B63C1CA233F500BBBD95 /* ShoppingCarAnimation */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ShoppingCarAnimation; path = ../ShoppingCarAnimation; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +83,6 @@
 		0421B5FD1CA233A000BBBD95 = {
 			isa = PBXGroup;
 			children = (
-				0421B63C1CA233F500BBBD95 /* ShoppingCarAnimation */,
 				0421B6081CA233A000BBBD95 /* ShoppingCartAnimationExample */,
 				0421B6221CA233A000BBBD95 /* ShoppingCartAnimationExampleTests */,
 				0421B62D1CA233A000BBBD95 /* ShoppingCartAnimationExampleUITests */,
@@ -104,6 +103,7 @@
 		0421B6081CA233A000BBBD95 /* ShoppingCartAnimationExample */ = {
 			isa = PBXGroup;
 			children = (
+				0421B63C1CA233F500BBBD95 /* ShoppingCarAnimation */,
 				0421B60C1CA233A000BBBD95 /* AppDelegate.h */,
 				0421B60D1CA233A000BBBD95 /* AppDelegate.m */,
 				0421B60F1CA233A000BBBD95 /* ViewController.h */,
