@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "MCFireworksButton.h"
 #import "ParabolaTool.h"
+#import <objc/runtime.h>
+#import "MCFireworksView.h"
 #define kDeviceHeight [UIScreen mainScreen].bounds.size.height
 #define kDeviceWidth  [UIScreen mainScreen].bounds.size.width
 @interface ViewController ()<ParabolaToolDelegate>
@@ -21,6 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor grayColor];
     UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
     btn1.frame = CGRectMake(0, 0, 100, 100);
     [btn1 setImage:[UIImage imageNamed:@"goods1.jpg"] forState:UIControlStateNormal];
@@ -40,14 +43,29 @@
     [self.view addSubview:btn1];
     [self.view addSubview:btn2];
     [self.view addSubview:btn3];
+    [self.view addSubview:self.shoppingCar];
+    [ParabolaTool sharedTool].delegate = self;
+    [self printIvars];
     // Do any additional setup after loading the view, typically from a nib.
+}
+-(void)printIvars
+{
+    unsigned int outCount = 0;
+    Ivar *ivars = class_copyIvarList([ParabolaTool class], &outCount);
+    for (unsigned int i = 0 ; i< outCount; i++) {
+        Ivar ivar = ivars[i];
+        const char *name = ivar_getName(ivar);
+        const char *type = ivar_getTypeEncoding(ivar);
+        printf("%s  的类型为%s \n",name,type);
+    }
+    printf("属性数目%d",outCount);
+    free(ivars);
 }
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
     
-    [self.view addSubview:self.shoppingCar];
-    [ParabolaTool sharedTool].delegate = self;
+    
 }
 /**
  *  抛物线结束的回调
@@ -71,13 +89,15 @@
     /**
      *  是否执行添加的动画
      */
-    //SDWebImage
-//    self.redView.frame = btn.frame;
+    self.redView.frame = btn.frame;
     [self.redView setImage:btn.imageView.image];
-    //YYImage
-    //                                                  [self.redView setImageWithURL:[_detailModel.piclist[0] objectForKey:@"pic_url" ] placeholder:[UIImage imageNamed:@"oversea"]];
     [self.view addSubview:self.redView];
-    [[ParabolaTool sharedTool] throwObject:self.redView from:parentRectA.origin to:parentRectB.origin];
+    
+    UIBezierPath *path= [UIBezierPath bezierPath];
+    [path moveToPoint:CGPointMake(parentRectA.origin.x, parentRectA.origin.y)];
+    [path addQuadCurveToPoint:CGPointMake(parentRectB.origin.x+25,  parentRectB.origin.y+25) controlPoint:CGPointMake(parentRectA.origin.x + 280, parentRectA.origin.y + 200)];
+    
+    [[ParabolaTool sharedTool] throwObject:self.redView  path:path isRotation:YES endScale:0.1];
 }
 /**
  *  抛物线小红点

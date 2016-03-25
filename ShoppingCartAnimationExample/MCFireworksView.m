@@ -104,7 +104,7 @@
 - (void)explode {
 	[self.chargeLayer setValue:@0 forKeyPath:@"emitterCells.charge.birthRate"];
     self.explosionLayer.beginTime = CACurrentMediaTime();
-	[self.explosionLayer setValue:@500 forKeyPath:@"emitterCells.explosion.birthRate"];
+	[self.explosionLayer setValue:@1000 forKeyPath:@"emitterCells.explosion.birthRate"];
     [self performSelector:@selector(stop) withObject:nil afterDelay:0.1];
 }
 

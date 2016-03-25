@@ -23,18 +23,19 @@
  *  @param obj    被抛的物体
  *  @param start  起点坐标
  *  @param end    终点坐标
+ *  @param endScale   终点大小
  */
-- (void)throwObject:(UIView *)obj from:(CGPoint)start to:(CGPoint)end;
+- (void)throwObject:(UIView *)obj from:(CGPoint)start to:(CGPoint)end endScale:(CGFloat )endScale;
 
 /**
  *  将某个view或者layer从起点抛到终点
  *
  *  @param obj    被抛的物体
- *  @param start  起点坐标
- *  @param end    终点坐标
  *  @param path   贝赛尔曲线
+ *  @param endScale   终点大小
+ *  @param isRotation 是否旋转
  */
-- (void)throwObject:(UIView *)obj from:(CGPoint)start to:(CGPoint)end path:(UIBezierPath *)path;
+- (void)throwObject:(UIView *)obj path:(UIBezierPath *)path isRotation:(BOOL)isRotation endScale:(CGFloat)endScale;
 @end
 @protocol ParabolaToolDelegate <NSObject>
 
