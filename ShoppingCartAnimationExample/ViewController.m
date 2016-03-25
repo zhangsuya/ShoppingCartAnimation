@@ -7,14 +7,14 @@
 //
 
 #import "ViewController.h"
-#import "MCFireworksButton.h"
+#import "SYFireworksButton.h"
 #import "ParabolaTool.h"
 #import <objc/runtime.h>
-#import "MCFireworksView.h"
+#import "SYFireworksView.h"
 #define kDeviceHeight [UIScreen mainScreen].bounds.size.height
 #define kDeviceWidth  [UIScreen mainScreen].bounds.size.width
 @interface ViewController ()<ParabolaToolDelegate>
-@property (nonatomic,strong)MCFireworksButton *shoppingCar;
+@property (nonatomic,strong)SYFireworksButton *shoppingCar;
 @property (nonatomic,strong)UIImageView *redView;
 
 @end
@@ -23,28 +23,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.view.backgroundColor = [UIColor grayColor];
+    
+    [self.view addSubview:self.redView];
+    [self.view addSubview:self.shoppingCar];
+    [ParabolaTool sharedTool].delegate = self;
+    
     UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
     btn1.frame = CGRectMake(0, 0, 100, 100);
     [btn1 setImage:[UIImage imageNamed:@"goods1.jpg"] forState:UIControlStateNormal];
-    [btn1 addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [btn1 addTarget:self action:@selector(btnOneClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     UIButton *btn2 = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn2.frame = CGRectMake(100, 100, 100, 100);
+    btn2.frame = CGRectMake(38 , kDeviceHeight-47 -15-44, 38, 38);
     [btn2 setImage:[UIImage imageNamed:@"goods2.jpg"] forState:UIControlStateNormal];
-    [btn2 addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [btn2 addTarget:self action:@selector(btnTwoClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     UIButton *btn3 = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn3.frame = CGRectMake(200, 200, 100, 100);
+    btn3.frame = CGRectMake(100, 100, 100, 100);
     [btn3 setImage:[UIImage imageNamed:@"goods3.jpg"] forState:UIControlStateNormal];
-    [btn3 addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.view addSubview:self.redView];
+    [btn3 addTarget:self action:@selector(btnThreeClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn1];
     [self.view addSubview:btn2];
     [self.view addSubview:btn3];
-    [self.view addSubview:self.shoppingCar];
-    [ParabolaTool sharedTool].delegate = self;
+
     [self printIvars];
     // Do any additional setup after loading the view, typically from a nib.
 }
@@ -79,7 +82,46 @@
     [self.shoppingCar popOutsideWithDuration:0.5];
     [self.shoppingCar animate];
 }
--(void)btnClicked:(UIButton *)btn
+
+//类似淘宝
+-(void)btnOneClicked:(UIButton *)btn
+{
+    CGRect parentRectA = btn.frame;
+    CGRect parentRectB = [self.view convertRect:self.shoppingCar.frame toView:self.view];
+    /**
+     *  是否执行添加的动画
+     */
+    self.redView.frame = btn.frame;
+    [self.redView setImage:btn.imageView.image];
+    [self.view addSubview:self.redView];
+    
+    UIBezierPath *path= [UIBezierPath bezierPath];
+    [path moveToPoint:CGPointMake(parentRectA.origin.x, parentRectA.origin.y)];
+    [path addLineToPoint:parentRectB.origin];
+//    [path addQuadCurveToPoint:CGPointMake(parentRectB.origin.x+25,  parentRectB.origin.y+25) controlPoint:CGPointMake(parentRectA.origin.x + 280, parentRectA.origin.y + 200)];
+    
+    [[ParabolaTool sharedTool] throwObject:self.redView  path:path isRotation:YES endScale:0.1];
+}
+//类似唯品会
+-(void)btnTwoClicked:(UIButton *)btn
+{
+    CGRect parentRectA = btn.frame;
+    CGRect parentRectB = [self.view convertRect:self.shoppingCar.frame toView:self.view];
+    /**
+     *  是否执行添加的动画
+     */
+    self.redView.frame = btn.frame;
+    [self.redView setImage:btn.imageView.image];
+    [self.view addSubview:self.redView];
+    
+    UIBezierPath *path= [UIBezierPath bezierPath];
+    [path moveToPoint:CGPointMake(parentRectA.origin.x, parentRectA.origin.y)];
+    [path addQuadCurveToPoint:CGPointMake(parentRectB.origin.x+25,  parentRectB.origin.y+25) controlPoint:CGPointMake((parentRectB.origin.x -parentRectA.origin.x )/2 +parentRectA.origin.x, parentRectA.origin.y - 200)];
+    
+    [[ParabolaTool sharedTool] throwObject:self.redView  path:path isRotation:NO endScale:0.1];
+}
+//带旋转的
+-(void)btnThreeClicked:(UIButton *)btn
 {
     /**
      *  通过坐标转换得到抛物线的起点和终点
@@ -113,12 +155,12 @@
     }
     return _redView;
 }
--(MCFireworksButton *)shoppingCar
+-(SYFireworksButton *)shoppingCar
 {
     
     if(!_shoppingCar)
     {
-        _shoppingCar = [MCFireworksButton buttonWithType:UIButtonTypeCustom];
+        _shoppingCar = [SYFireworksButton buttonWithType:UIButtonTypeCustom];
         _shoppingCar.backgroundColor = [UIColor clearColor];
         _shoppingCar.frame = CGRectMake(kDeviceWidth-38 -17, kDeviceHeight-47 -15-44, 38, 38);
         _shoppingCar.alpha = 1;

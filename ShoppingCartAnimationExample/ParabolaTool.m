@@ -107,7 +107,13 @@ static ParabolaTool *s_sharedInstance = nil;
     rotationAnimation.repeatCount = animationDuration/0.3f;
     
     CAAnimationGroup *groups = [CAAnimationGroup animation];
-    groups.animations = @[animation,rotationAnimation,narrowAnimation];
+    if (isRotation) {
+        groups.animations = @[animation,rotationAnimation,narrowAnimation];
+    }else
+    {
+        groups.animations = @[animation,narrowAnimation];
+    }
+    
     groups.duration = animationDuration;
     groups.removedOnCompletion=NO;
     groups.fillMode=kCAFillModeForwards;

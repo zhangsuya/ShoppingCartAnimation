@@ -1,19 +1,18 @@
 //
-//  MCFireworksView.h
-//  MCFireworksButton
+//  SYFireworksView.h
+//  ShoppingCartAnimationExample
 //
-//  Created by Matthew Cheok on 17/3/14.
-//  Copyright (c) 2014 Matthew Cheok. All rights reserved.
+//  Created by Mac on 16/3/25.
+//  Copyright © 2016年 suya. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface MCFireworksView : UIView
+@interface SYFireworksView : UIView
 @property (nonatomic,setter = setIsSelected:) BOOL isSelected;
 @property (strong, nonatomic) UIImage *particleImage;
 @property (assign, nonatomic) CGFloat particleScale;
 @property (assign, nonatomic) CGFloat particleScaleRange;
 
 - (void)animate;
-
 @end

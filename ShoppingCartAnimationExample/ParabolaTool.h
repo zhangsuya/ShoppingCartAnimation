@@ -17,15 +17,7 @@
 
 + (ParabolaTool *)sharedTool;
 
-/**
- *  将某个view或者layer从起点抛到终点
- *
- *  @param obj    被抛的物体
- *  @param start  起点坐标
- *  @param end    终点坐标
- *  @param endScale   终点大小
- */
-- (void)throwObject:(UIView *)obj from:(CGPoint)start to:(CGPoint)end endScale:(CGFloat )endScale;
+
 
 /**
  *  将某个view或者layer从起点抛到终点
